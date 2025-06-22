@@ -1,4 +1,6 @@
 
+import React from "react"
+
 function HomePage() {
     return <h1>Movie Watchlist App</h1>
 }
