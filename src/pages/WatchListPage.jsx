@@ -1,6 +1,7 @@
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import Card from "../shared/Card"
+import WatchList from "../features/watchlist/watchlist"
 
 function WatchListPage() {
 
@@ -35,9 +36,9 @@ function WatchListPage() {
         setYear("")
     }
 
-    const handleDelete = (id) => {
+    const handleDelete = useCallback((id) => {
         setWatchlist(prev => prev.filter(movie => movie.id !== id))
-    }
+    }, [])
 
     const handleEditClick = (id, currentTitle, currentYear) => {
         setEditingId(id)
@@ -82,40 +83,18 @@ function WatchListPage() {
                 <button type="submit">Add Movie</button>
             </form>
 
-            {watchlist.length === 0 ? (
-                <p>No movies yet!</p>
-            ) : (
-                <ul>
-                    {watchlist.map(movie => (
-                        <Card key={movie.id}>
-                            <li>
-                                {editingId === movie.id ? (
-                                    <>
-                                        <input
-                                            type="text"
-                                            value={editTitle}
-                                            onChange={(e) => setEditTitle(e.target.value)}
-                                        />
-                                        <input
-                                            type="number"
-                                            value={editYear}
-                                            onChange={(e) => setEditYear(e.target.value)}
-                                        />
-                                        <button onClick={() => handleSaveClick(movie.id)}>Save</button>
-                                        <button onClick={handleCancelClick}>Cancel</button>
-                                    </>
-                                ) : (
-                                    <>
-                                        {movie.title} ({movie.year})
-                                        <button onClick={() => handleEditClick(movie.id, movie.title, movie.year)}>Edit</button>
-                                        <button onClick={() => handleDelete(movie.id)}>Delete</button>
-                                    </>
-                                )}
-                            </li>
-                        </Card>
-                    ))}
-                </ul>
-            )}
+            <WatchList
+                movies={watchlist}
+                onEdit={handleEditClick}
+                onDelete={handleDelete}
+                editingId={editingId}
+                editTitle={editTitle}
+                setEditTitle={setEditTitle}
+                editYear={editYear}
+                setEditYear={setEditYear}
+                onSave={handleSaveClick}
+                onCancel={handleCancelClick}
+            />
         </div>
     )
 }
