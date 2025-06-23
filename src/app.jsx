@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import WatchListPage from './pages/WatchListPage'
 import NotFoundPage from './pages/NotFoundPage'
 import Header from './shared/Header'
+import './App.css'
 
 function App() {
     return (

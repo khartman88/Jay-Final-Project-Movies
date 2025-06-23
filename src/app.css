@@ -1,96 +1,91 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* CSS for app */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
+  background-color: #000;
+  color: #FFD700;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: #FFD700;
+  margin-top: 1.5rem;
+}
+
+.movie-title {
+  margin-right: 12px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+nav {
+  margin: 2rem 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-bottom: 0.2rem;
+  transition: color 0.2s ease;
+}
+
+nav a.active {
+  border-bottom: 2px solid #FFD700;
+}
+
+nav a:hover {
+  color: #FFD700;
+}
+
+/* Card Component */
 .card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  border: 1px solid #FFD700;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 400px;
+  border-radius: 10px;
+  background-color: #111;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  margin: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.95rem;
+  background-color: #222;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  border-radius: 5px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover {
+  background-color: #FFD700;
+  color: #000;
+}
+
+input {
+  margin: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #FFD700;
+  background-color: #111;
+  color: #FFD700;
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+
+input::placeholder {
+  color: #aaa;
 }

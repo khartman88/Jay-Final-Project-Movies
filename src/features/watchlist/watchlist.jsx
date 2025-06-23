@@ -29,7 +29,9 @@ function WatchList({ movies, onEdit, onDelete, editingId, editTitle, setEditTitl
                             </>
                     ) : (
                             <>
-                                {movie.title} ({movie.year})
+                                <span className="movie-title">
+                                    {movie.title} ({movie.year})
+                                </span>
                                 <button onClick={() => onEdit(movie.id, movie.title, movie.year)}>Edit</button>
                                 <button onClick={() => onDelete(movie.id)}>Delete</button>
                             </>
